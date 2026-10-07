@@ -1,141 +1,138 @@
-:root {
-  --bg1: #ffe4ec;
-  --bg2: #ffd1dc;
-  --rose: #e11d48;
-  --rose-dark: #be123c;
-  --ink: #4a1d2b;
-  --soft: #7a4a5a;
-  --white: #fff;
-}
+<!DOCTYPE html>
+<html lang="en">
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Someone Special ❤️</title>
+  <meta name="description" content="A little something made just for you." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-html { scroll-behavior: smooth; }
+<body>
 
-body {
-  font-family: "Poppins", system-ui, sans-serif;
-  color: var(--ink);
-  background: linear-gradient(160deg, var(--bg1), var(--bg2) 60%, #ffc2d4);
-  background-attachment: fixed;
-  overflow-x: hidden;
-}
+  <!-- floating hearts background -->
+  <div class="hearts" id="hearts" aria-hidden="true"></div>
 
-/* ---------- layout ---------- */
-.screen {
-  min-height: 100vh;
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 4rem 1.5rem;
-  gap: 1.4rem;
-  position: relative;
-  z-index: 1;
-}
+  <!-- sparkle cursor trail -->
+  <div class="sparkles" id="sparkles" aria-hidden="true"></div>
 
-.hidden { display: none; }
+  <!-- 1. INTRO -->
+  <section class="screen" id="intro">
+    <div class="glow-orb glow-orb--1"></div>
+    <div class="glow-orb glow-orb--2"></div>
+    <div class="intro-content">
+      <div class="big-emoji beat">❤️</div>
+      <h1>Hey Beautiful</h1>
+      <p class="lead">I made something special just for you...</p>
+      <button class="btn glow-btn" data-next="birthday">
+        <span>Let's Begin</span>
+        <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </section>
 
-.screen.reveal { animation: fadeUp 0.9s ease both; }
+  <!-- 2. BIRTHDAY -->
+  <section class="screen hidden" id="birthday">
+    <div class="glow-orb glow-orb--3"></div>
+    <div class="birthday-wrap">
+      <div class="big-emoji bounce">🎉</div>
+      <h2 class="gradient-text">Happy Birthday!</h2>
+      <p class="text">
+        On your special day, I want you to know how truly amazing you are. Your smile brightens my world,
+        your laughter is my favorite melody, and your presence makes every moment magical. ✨
+      </p>
+      <button class="btn glow-btn" data-next="qualities">
+        <span>What makes you special?</span>
+        <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </section>
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+  <!-- 3. QUALITIES -->
+  <section class="screen hidden" id="qualities">
+    <h2 class="gradient-text">Here's why you're incredible</h2>
+    <div class="cards">
+      <article class="card glass-card">
+        <div class="card-glow"></div>
+        <div class="card-emoji">✨</div>
+        <h3>Your Kindness</h3>
+        <p>The way you care about others is truly inspiring. You have the biggest heart I've ever known.</p>
+      </article>
+      <article class="card glass-card">
+        <div class="card-glow"></div>
+        <div class="card-emoji">😊</div>
+        <h3>Your Smile</h3>
+        <p>It lights up every room you enter and stays in my mind all day long.</p>
+      </article>
+      <article class="card glass-card">
+        <div class="card-glow"></div>
+        <div class="card-emoji">🌟</div>
+        <h3>Your Spirit</h3>
+        <p>Your passion and energy are contagious. You make life so exciting!</p>
+      </article>
+      <article class="card glass-card">
+        <div class="card-glow"></div>
+        <div class="card-emoji">💖</div>
+        <h3>Your Beauty</h3>
+        <p>Inside and out, you radiate a beauty that takes my breath away every single time.</p>
+      </article>
+    </div>
+    <button class="btn glow-btn" data-next="gallery">
+      <span>See Something Special</span>
+      <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+  </section>
 
-/* ---------- type ---------- */
-h1, h2, h3 { font-family: "Playfair Display", Georgia, serif; }
+  <!-- 4. GALLERY -->
+  <section class="screen hidden" id="gallery">
+    <div class="glow-orb glow-orb--1"></div>
+    <div class="big-emoji">📸</div>
+    <h2 class="gradient-text">Beautiful Moments</h2>
+    <div class="gallery">
+      <figure class="photo-frame photo-frame--tilt-left">
+        <img src="image.jpeg" alt="A beautiful memory" />
+        <figcaption>Simply gorgeous ❤️</figcaption>
+      </figure>
+      <figure class="photo-frame photo-frame--tilt-right">
+        <img src="photo.jpeg" alt="Another beautiful memory" />
+        <figcaption>Always stunning 🌟</figcaption>
+      </figure>
+    </div>
+    <p class="text">
+      Every moment with you becomes a cherished memory. Whether we're laughing together or just
+      enjoying the silence, time with you is always special.
+    </p>
+    <button class="btn glow-btn" data-next="wish">
+      <span>One Last Thing</span>
+      <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+  </section>
 
-h1 { font-size: clamp(2.8rem, 9vw, 5rem); color: var(--rose-dark); }
-h2 { font-size: clamp(2rem, 6vw, 3.2rem); color: var(--rose-dark); max-width: 22ch; }
-h3 { font-size: 1.35rem; color: var(--rose); }
+  <!-- 5. WISH -->
+  <section class="screen hidden" id="wish">
+    <div class="glow-orb glow-orb--2"></div>
+    <div class="glow-orb glow-orb--3"></div>
+    <div class="big-emoji bounce">🎂</div>
+    <h2 class="gradient-text">My Birthday Wish For You</h2>
+    <p class="text">
+      May your year be filled with joy, laughter, and dreams come true. May you always know how
+      special you are to me and to everyone lucky enough to know you.
+    </p>
+    <p class="signoff">Happy Birthday, my little Princess! ❤️</p>
+    <button class="btn glow-btn" id="celebrate">
+      <span>🎉 Celebrate! 🎉</span>
+    </button>
+    <footer>Made with ❤️ just for you</footer>
+  </section>
 
-.lead { font-size: 1.2rem; color: var(--soft); font-weight: 300; }
-.text { max-width: 36rem; font-size: 1.05rem; line-height: 1.8; color: var(--soft); }
-.signoff { font-family: "Playfair Display", serif; font-style: italic; font-size: 1.6rem; color: var(--rose); }
+  <canvas id="confetti" aria-hidden="true"></canvas>
+  <script src="script.js"></script>
+</body>
 
-.big-emoji { font-size: clamp(4rem, 14vw, 6rem); line-height: 1; }
-.beat   { animation: beat 1.3s ease-in-out infinite; }
-.bounce { animation: bounce 1.8s ease-in-out infinite; }
-
-@keyframes beat {
-  0%, 100% { transform: scale(1); }
-  30% { transform: scale(1.18); }
-  60% { transform: scale(1.05); }
-}
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-14px); }
-}
-
-/* ---------- button ---------- */
-.btn {
-  margin-top: 0.6rem;
-  padding: 0.95rem 2.2rem;
-  border: none;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #fb7185, var(--rose));
-  color: var(--white);
-  font: 500 1.05rem "Poppins", sans-serif;
-  cursor: pointer;
-  box-shadow: 0 10px 25px rgba(225, 29, 72, 0.35);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.btn:hover  { transform: translateY(-3px) scale(1.03); box-shadow: 0 14px 30px rgba(225, 29, 72, 0.45); }
-.btn:active { transform: scale(0.97); }
-.btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
-
-/* ---------- cards ---------- */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 1.4rem;
-  width: min(960px, 100%);
-}
-.card {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(6px);
-  border-radius: 22px;
-  padding: 2rem 1.5rem;
-  box-shadow: 0 12px 30px rgba(190, 18, 60, 0.12);
-  transition: transform 0.25s ease;
-}
-.card:hover { transform: translateY(-6px); }
-.card-emoji { font-size: 2.6rem; margin-bottom: 0.6rem; }
-.card p { color: var(--soft); line-height: 1.7; font-size: 0.98rem; margin-top: 0.4rem; }
-
-/* ---------- photo ---------- */
-.photo {
-  width: min(380px, 100%);
-  background: var(--white);
-  padding: 0.8rem 0.8rem 1rem;
-  border-radius: 14px;
-  box-shadow: 0 16px 35px rgba(74, 29, 43, 0.22);
-  transform: rotate(-2deg);
-}
-.photo img { width: 100%; display: block; border-radius: 8px; }
-.photo figcaption { margin-top: 0.7rem; font-size: 0.85rem; color: var(--soft); font-style: italic; }
-.photo.no-photo { padding: 3rem 1.5rem; }
-.photo.no-photo figcaption { margin: 0; font-size: 1rem; }
-
-/* ---------- footer ---------- */
-footer { margin-top: 2.5rem; color: var(--soft); font-size: 0.9rem; }
-
-/* ---------- background hearts + confetti ---------- */
-.hearts { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
-.heart {
-  position: absolute;
-  bottom: -40px;
-  opacity: 0.5;
-  animation: floatUp linear forwards;
-}
-@keyframes floatUp {
-  to { transform: translateY(-110vh) rotate(25deg); opacity: 0; }
-}
-
-#confetti { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 10; }
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-}
+</html>
