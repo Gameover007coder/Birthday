@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Poppins:wght@300;400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -19,75 +19,115 @@
   <!-- floating hearts background -->
   <div class="hearts" id="hearts" aria-hidden="true"></div>
 
+  <!-- sparkle cursor trail -->
+  <div class="sparkles" id="sparkles" aria-hidden="true"></div>
+
   <!-- 1. INTRO -->
   <section class="screen" id="intro">
-    <div class="big-emoji beat">❤️</div>
-    <h1>Hey Beautiful</h1>
-    <p class="lead">I made something special for you...</p>
-    <button class="btn" data-next="birthday">Let's Begin</button>
+    <div class="glow-orb glow-orb--1"></div>
+    <div class="glow-orb glow-orb--2"></div>
+    <div class="intro-content">
+      <div class="big-emoji beat">❤️</div>
+      <h1>Hey Beautiful</h1>
+      <p class="lead">I made something special just for you...</p>
+      <button class="btn glow-btn" data-next="birthday">
+        <span>Let's Begin</span>
+        <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
   </section>
 
   <!-- 2. BIRTHDAY -->
   <section class="screen hidden" id="birthday">
-    <div class="big-emoji bounce">🎉</div>
-    <h2>Happy Birthday!</h2>
-    <p class="text">
-      On your special day, I want you to know how amazing you are. Your smile brightens my world,
-      your laughter is my favorite melody, and your presence makes every moment magical.
-    </p>
-    <button class="btn" data-next="qualities">What makes you special?</button>
+    <div class="glow-orb glow-orb--3"></div>
+    <div class="birthday-wrap">
+      <div class="big-emoji bounce">🎉</div>
+      <h2 class="gradient-text">Happy Birthday!</h2>
+      <p class="text">
+        On your special day, I want you to know how truly amazing you are. Your smile brightens my world,
+        your laughter is my favorite melody, and your presence makes every moment magical. ✨
+      </p>
+      <button class="btn glow-btn" data-next="qualities">
+        <span>What makes you special?</span>
+        <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
   </section>
 
   <!-- 3. QUALITIES -->
   <section class="screen hidden" id="qualities">
-    <h2>Here's why you're incredible</h2>
+    <h2 class="gradient-text">Here's why you're incredible</h2>
     <div class="cards">
-      <article class="card">
+      <article class="card glass-card">
+        <div class="card-glow"></div>
         <div class="card-emoji">✨</div>
         <h3>Your Kindness</h3>
-        <p>The way you care about others is truly inspiring. You have the biggest heart.</p>
+        <p>The way you care about others is truly inspiring. You have the biggest heart I've ever known.</p>
       </article>
-      <article class="card">
+      <article class="card glass-card">
+        <div class="card-glow"></div>
         <div class="card-emoji">😊</div>
         <h3>Your Smile</h3>
-        <p>It lights up every room you enter and stays in my mind all day.</p>
+        <p>It lights up every room you enter and stays in my mind all day long.</p>
       </article>
-      <article class="card">
+      <article class="card glass-card">
+        <div class="card-glow"></div>
         <div class="card-emoji">🌟</div>
         <h3>Your Spirit</h3>
-        <p>Your passion and energy are contagious. You make life exciting!</p>
+        <p>Your passion and energy are contagious. You make life so exciting!</p>
+      </article>
+      <article class="card glass-card">
+        <div class="card-glow"></div>
+        <div class="card-emoji">💖</div>
+        <h3>Your Beauty</h3>
+        <p>Inside and out, you radiate a beauty that takes my breath away every single time.</p>
       </article>
     </div>
-    <button class="btn" data-next="memory">A Little Surprise</button>
+    <button class="btn glow-btn" data-next="gallery">
+      <span>See Something Special</span>
+      <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
   </section>
 
-  <!-- 4. MEMORY -->
-  <section class="screen hidden" id="memory">
+  <!-- 4. GALLERY -->
+  <section class="screen hidden" id="gallery">
+    <div class="glow-orb glow-orb--1"></div>
     <div class="big-emoji">📸</div>
-    <h2>Remember When...</h2>
-    <figure class="photo">
-      <!-- Replace images/photo.jpg with your own picture -->
-      <img src="image.jpeg" alt="Our favorite memory"
-        onerror="this.parentElement.classList.add('no-photo'); this.remove();" />
-      <figcaption class="placeholder">(Imagine our favorite memory together here)</figcaption>
-    </figure>
+    <h2 class="gradient-text">Beautiful Moments</h2>
+    <div class="gallery">
+      <figure class="photo-frame photo-frame--tilt-left">
+        <img src="image.jpeg" alt="A beautiful memory" />
+        <figcaption>Simply gorgeous ❤️</figcaption>
+      </figure>
+      <figure class="photo-frame photo-frame--tilt-right">
+        <img src="photo.jpeg" alt="Another beautiful memory" />
+        <figcaption>Always stunning 🌟</figcaption>
+      </figure>
+    </div>
     <p class="text">
       Every moment with you becomes a cherished memory. Whether we're laughing together or just
       enjoying the silence, time with you is always special.
     </p>
-    <button class="btn" data-next="wish">One Last Thing</button>
+    <button class="btn glow-btn" data-next="wish">
+      <span>One Last Thing</span>
+      <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
   </section>
 
   <!-- 5. WISH -->
   <section class="screen hidden" id="wish">
+    <div class="glow-orb glow-orb--2"></div>
+    <div class="glow-orb glow-orb--3"></div>
     <div class="big-emoji bounce">🎂</div>
-    <h2>My Birthday Wish For You</h2>
+    <h2 class="gradient-text">My Birthday Wish For You</h2>
     <p class="text">
       May your year be filled with joy, laughter, and dreams come true. May you always know how
       special you are to me and to everyone lucky enough to know you.
     </p>
-    <p class="signoff">Happy Birthday, my Bestu! ❤️</p>
-    <button class="btn" id="celebrate">Celebrate!</button>
+    <p class="signoff">Happy Birthday, my little Princess! ❤️</p>
+    <button class="btn glow-btn" id="celebrate">
+      <span>🎉 Celebrate! 🎉</span>
+    </button>
     <footer>Made with ❤️ just for you</footer>
   </section>
 
