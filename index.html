@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Someone Special ❤️</title>
+  <meta name="description" content="A little something made just for you." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Poppins:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- floating hearts background -->
+  <div class="hearts" id="hearts" aria-hidden="true"></div>
+
+  <!-- 1. INTRO -->
+  <section class="screen" id="intro">
+    <div class="big-emoji beat">❤️</div>
+    <h1>Hey Beautiful</h1>
+    <p class="lead">I made something special for you...</p>
+    <button class="btn" data-next="birthday">Let's Begin</button>
+  </section>
+
+  <!-- 2. BIRTHDAY -->
+  <section class="screen hidden" id="birthday">
+    <div class="big-emoji bounce">🎉</div>
+    <h2>Happy Birthday!</h2>
+    <p class="text">
+      On your special day, I want you to know how amazing you are. Your smile brightens my world,
+      your laughter is my favorite melody, and your presence makes every moment magical.
+    </p>
+    <button class="btn" data-next="qualities">What makes you special?</button>
+  </section>
+
+  <!-- 3. QUALITIES -->
+  <section class="screen hidden" id="qualities">
+    <h2>Here's why you're incredible</h2>
+    <div class="cards">
+      <article class="card">
+        <div class="card-emoji">✨</div>
+        <h3>Your Kindness</h3>
+        <p>The way you care about others is truly inspiring. You have the biggest heart.</p>
+      </article>
+      <article class="card">
+        <div class="card-emoji">😊</div>
+        <h3>Your Smile</h3>
+        <p>It lights up every room you enter and stays in my mind all day.</p>
+      </article>
+      <article class="card">
+        <div class="card-emoji">🌟</div>
+        <h3>Your Spirit</h3>
+        <p>Your passion and energy are contagious. You make life exciting!</p>
+      </article>
+    </div>
+    <button class="btn" data-next="memory">A Little Surprise</button>
+  </section>
+
+  <!-- 4. MEMORY -->
+  <section class="screen hidden" id="memory">
+    <div class="big-emoji">📸</div>
+    <h2>Remember When...</h2>
+    <figure class="photo">
+      <!-- Replace images/photo.jpg with your own picture -->
+      <img src="image.jpeg" alt="Our favorite memory"
+        onerror="this.parentElement.classList.add('no-photo'); this.remove();" />
+      <figcaption class="placeholder">(Imagine our favorite memory together here)</figcaption>
+    </figure>
+    <p class="text">
+      Every moment with you becomes a cherished memory. Whether we're laughing together or just
+      enjoying the silence, time with you is always special.
+    </p>
+    <button class="btn" data-next="wish">One Last Thing</button>
+  </section>
+
+  <!-- 5. WISH -->
+  <section class="screen hidden" id="wish">
+    <div class="big-emoji bounce">🎂</div>
+    <h2>My Birthday Wish For You</h2>
+    <p class="text">
+      May your year be filled with joy, laughter, and dreams come true. May you always know how
+      special you are to me and to everyone lucky enough to know you.
+    </p>
+    <p class="signoff">Happy Birthday, my Bestu! ❤️</p>
+    <button class="btn" id="celebrate">Celebrate!</button>
+    <footer>Made with ❤️ just for you</footer>
+  </section>
+
+  <canvas id="confetti" aria-hidden="true"></canvas>
+  <script src="script.js"></script>
+</body>
+
+</html>
