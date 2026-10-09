@@ -1,138 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>For Someone Special ❤️</title>
-  <meta name="description" content="A little something made just for you." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For Someone Special ❤️</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-  <!-- floating hearts background -->
-  <div class="hearts" id="hearts" aria-hidden="true"></div>
+<div id="bg"></div>
+<div id="aurora"></div>
+<div id="sparkles"></div>
+<div id="bar"></div>
+<nav id="dots" aria-label="Progress"></nav>
 
-  <!-- sparkle cursor trail -->
-  <div class="sparkles" id="sparkles" aria-hidden="true"></div>
+<main id="stage">
 
-  <!-- 1. INTRO -->
-  <section class="screen" id="intro">
-    <div class="glow-orb glow-orb--1"></div>
-    <div class="glow-orb glow-orb--2"></div>
-    <div class="intro-content">
-      <div class="big-emoji beat">❤️</div>
-      <h1>Hey Beautiful</h1>
-      <p class="lead">I made something special just for you...</p>
-      <button class="btn glow-btn" data-next="birthday">
-        <span>Let's Begin</span>
-        <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </button>
+  <!-- 1 INTRO -->
+  <section class="step" data-step>
+    <div class="panel">
+      <div class="emoji beat">❤️</div>
+      <h1 class="title" data-split>Hey Beautiful</h1>
+      <p class="lead r">I made something special just for you…</p>
+      <button class="btn r" data-go="next">Let's Begin ✨</button>
     </div>
   </section>
 
-  <!-- 2. BIRTHDAY -->
-  <section class="screen hidden" id="birthday">
-    <div class="glow-orb glow-orb--3"></div>
-    <div class="birthday-wrap">
-      <div class="big-emoji bounce">🎉</div>
-      <h2 class="gradient-text">Happy Birthday!</h2>
-      <p class="text">
-        On your special day, I want you to know how truly amazing you are. Your smile brightens my world,
-        your laughter is my favorite melody, and your presence makes every moment magical. ✨
-      </p>
-      <button class="btn glow-btn" data-next="qualities">
-        <span>What makes you special?</span>
-        <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </button>
+  <!-- 2 BIRTHDAY -->
+  <section class="step" data-step>
+    <div class="panel">
+      <div class="emoji float">🎉</div>
+      <h2 class="title accent-wrap" data-split>Happy <span class="accent">Birthday!</span></h2>
+      <p class="text" id="typed" data-text="On your special day, I want you to know how truly amazing you are. Your smile brightens my world, your laughter is my favorite melody, and your presence makes every moment magical. ✨"></p>
+      <button class="btn r" data-go="next">What makes you special?</button>
     </div>
   </section>
 
-  <!-- 3. QUALITIES -->
-  <section class="screen hidden" id="qualities">
-    <h2 class="gradient-text">Here's why you're incredible</h2>
-    <div class="cards">
-      <article class="card glass-card">
-        <div class="card-glow"></div>
-        <div class="card-emoji">✨</div>
-        <h3>Your Kindness</h3>
-        <p>The way you care about others is truly inspiring. You have the biggest heart I've ever known.</p>
-      </article>
-      <article class="card glass-card">
-        <div class="card-glow"></div>
-        <div class="card-emoji">😊</div>
-        <h3>Your Smile</h3>
-        <p>It lights up every room you enter and stays in my mind all day long.</p>
-      </article>
-      <article class="card glass-card">
-        <div class="card-glow"></div>
-        <div class="card-emoji">🌟</div>
-        <h3>Your Spirit</h3>
-        <p>Your passion and energy are contagious. You make life so exciting!</p>
-      </article>
-      <article class="card glass-card">
-        <div class="card-glow"></div>
-        <div class="card-emoji">💖</div>
-        <h3>Your Beauty</h3>
-        <p>Inside and out, you radiate a beauty that takes my breath away every single time.</p>
-      </article>
+  <!-- 3 QUALITIES -->
+  <section class="step" data-step>
+    <div class="panel">
+      <h2 class="title" data-split>Here's why you're incredible</h2>
+      <p class="hint r">Tap or hover each card 💫</p>
+      <div class="cards">
+        <div class="flip r" tabindex="0"><div class="flip-in">
+          <div class="face"><div class="ce">✨</div><h3>Your Kindness</h3></div>
+          <div class="face back">The way you care about others is truly inspiring. You have the biggest heart I've ever known.</div></div></div>
+        <div class="flip r" tabindex="0"><div class="flip-in">
+          <div class="face"><div class="ce">😊</div><h3>Your Smile</h3></div>
+          <div class="face back">It lights up every room you enter and stays in my mind all day long.</div></div></div>
+        <div class="flip r" tabindex="0"><div class="flip-in">
+          <div class="face"><div class="ce">🌟</div><h3>Your Spirit</h3></div>
+          <div class="face back">Your passion and energy are contagious. You make life so exciting!</div></div></div>
+        <div class="flip r" tabindex="0"><div class="flip-in">
+          <div class="face"><div class="ce">💖</div><h3>Your Beauty</h3></div>
+          <div class="face back">Inside and out, you radiate a beauty that takes my breath away every single time.</div></div></div>
+      </div>
+      <button class="btn r" data-go="next">See Something Special</button>
     </div>
-    <button class="btn glow-btn" data-next="gallery">
-      <span>See Something Special</span>
-      <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </button>
   </section>
 
-  <!-- 4. GALLERY -->
-  <section class="screen hidden" id="gallery">
-    <div class="glow-orb glow-orb--1"></div>
-    <div class="big-emoji">📸</div>
-    <h2 class="gradient-text">Beautiful Moments</h2>
-    <div class="gallery">
-      <figure class="photo-frame photo-frame--tilt-left">
-        <img src="image.jpeg" alt="A beautiful memory" />
-        <figcaption>Simply gorgeous ❤️</figcaption>
-      </figure>
-      <figure class="photo-frame photo-frame--tilt-right">
-        <img src="photo.jpeg" alt="Another beautiful memory" />
-        <figcaption>Always stunning 🌟</figcaption>
-      </figure>
+  <!-- 4 GALLERY -->
+  <section class="step" data-step>
+    <div class="panel">
+      <div class="emoji">📸</div>
+      <h2 class="title" data-split>Beautiful Moments</h2>
+      <div class="gallery">
+        <figure class="photo r" style="transform:rotate(-4deg)">
+          <div class="ph">📷<img src="image.jpeg" alt="A beautiful memory" onerror="this.remove()" style="position:absolute;inset:0"></div>
+          <figcaption>Simply gorgeous ❤️</figcaption>
+        </figure>
+        <figure class="photo r" style="transform:rotate(4deg)">
+          <div class="ph">📷<img src="photo.jpeg" alt="Another memory" onerror="this.remove()" style="position:absolute;inset:0"></div>
+          <figcaption>Always stunning 🌟</figcaption>
+        </figure>
+      </div>
+      <p class="text r" style="min-height:0">Every moment with you becomes a cherished memory. Whether we're laughing together or just enjoying the silence, time with you is always special.</p>
+      <button class="btn r" data-go="next">One Last Thing</button>
     </div>
-    <p class="text">
-      Every moment with you becomes a cherished memory. Whether we're laughing together or just
-      enjoying the silence, time with you is always special.
-    </p>
-    <button class="btn glow-btn" data-next="wish">
-      <span>One Last Thing</span>
-      <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </button>
   </section>
 
-  <!-- 5. WISH -->
-  <section class="screen hidden" id="wish">
-    <div class="glow-orb glow-orb--2"></div>
-    <div class="glow-orb glow-orb--3"></div>
-    <div class="big-emoji bounce">🎂</div>
-    <h2 class="gradient-text">My Birthday Wish For You</h2>
-    <p class="text">
-      May your year be filled with joy, laughter, and dreams come true. May you always know how
-      special you are to me and to everyone lucky enough to know you.
-    </p>
-    <p class="signoff">Happy Birthday, my little Princess! ❤️</p>
-    <button class="btn glow-btn" id="celebrate">
-      <span>🎉 Celebrate! 🎉</span>
-    </button>
-    <footer>Made with ❤️ just for you</footer>
+  <!-- 5 FINAL -->
+  <section class="step" data-step>
+    <div class="panel">
+      <div class="emoji float">🎂</div>
+      <h2 class="title" data-split>My Birthday Wish For You</h2>
+      <p class="text r" style="min-height:0">May your year be filled with joy, laughter, and dreams come true. May you always know how special you are to me and to everyone lucky enough to know you.</p>
+      <p class="script accent r" id="signoff">Happy Birthday, my little Princess! ❤️</p>
+      <button class="btn r" id="celebrate">🎉 Celebrate! 🎉</button>
+      <footer class="r">Made with ❤️ just for you</footer>
+    </div>
   </section>
 
-  <canvas id="confetti" aria-hidden="true"></canvas>
-  <script src="script.js"></script>
+</main>
+
+<script src="script.js"></script>
 </body>
-
 </html>
